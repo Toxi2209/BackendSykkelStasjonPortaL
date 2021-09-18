@@ -8,6 +8,8 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,10 @@ public class StationService {
 
     public int AddStation(Station station) {
         return stationDao.insertStation(station);
+    }
+
+    public Optional<Station> getPersonById(String id) {
+        return stationDao.selectStationById(id);
     }
 
     public List<Station> getAllStations() {
